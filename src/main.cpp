@@ -105,8 +105,8 @@ public:
     Filled(const sf::Vector2i& pos)
     {
         setPosition({float(pos.x * SCALE), float(pos.y * SCALE)});
-        setFillColor(sf::Color::Black);
-        setOutlineColor(sf::Color::White);
+        setFillColor(sf::Color::Blue);
+        setOutlineColor(sf::Color::Black);
         setOutlineThickness(1);
     }
 };
@@ -119,7 +119,7 @@ public:
     Empty(const sf::Vector2i& pos)
     {
         setPosition({float(pos.x * SCALE), float(pos.y * SCALE)});
-        setFillColor(sf::Color::White);
+        setFillColor(sf::Color::Black);
     }
 };
 
@@ -260,7 +260,7 @@ public:
 
     void draw()
     {
-        _window.clear(sf::Color::White);
+        _window.clear(sf::Color::Black);
 
         for (const sf::Vector2i& v : _pop)
         {
@@ -270,10 +270,6 @@ public:
 
     void proceed2()
     {
-        _neighbours.clear();
-        _borns.clear();
-        _deads.clear();
-
         _setNeighboursAndDeads();
         _setBorns();
 
@@ -298,7 +294,7 @@ sf::RenderWindow initWindow()
     sf::Image logo{};
 
     window.setFramerateLimit(144);
-    window.clear(sf::Color::White);
+    window.clear(sf::Color::Black);
 
     if (!logo.loadFromFile("img/logo.png"))
     {
