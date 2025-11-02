@@ -4,12 +4,6 @@
 #include <list>
 #include <set>
 #include <chrono>
-#if defined(WIN32) || defined(_WIN32) || defined(__WIN32) && !defined(__CYGWIN__)
-    #include <windows.h>
-#else
-    #include <unistd.h>
-
-#endif
 
 #define WIDTH 1440
 #define HEIGH 720
