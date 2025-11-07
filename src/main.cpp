@@ -281,6 +281,15 @@ public:
         });
     }
 
+    void addOrDelete(const sf::Vector2i& pos)
+    {
+        sf::Vector2i truePos = {(int)(((pos.x / this->_zoom) - this->_shiftX)), (int)(((pos.y / this->_zoom) - this->_shiftY))};
+        if (_pop.find(truePos) != _pop.end())
+            _pop.erase(truePos);
+        else
+            _pop.insert(truePos);
+    }
+
     void add(const sf::Vector2i& toAdd)
     {
         _pop.insert({(int)(((toAdd.x / this->_zoom) - this->_shiftX)), (int)(((toAdd.y / this->_zoom) - this->_shiftY))});
@@ -533,7 +542,7 @@ int main()
                 mousePtr = event->getIf<sf::Event::MouseButtonPressed>();
                 if (mousePtr->button == sf::Mouse::Button::Left)
                 {
-                    game.add(mousePtr->position);
+                    game.addOrDelete(mousePtr->position);
                 }
             }
 
